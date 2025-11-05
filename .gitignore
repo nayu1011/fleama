@@ -1,0 +1,4 @@
+# Docker
+/docker/mysql/data/
+/docker/php/logs/
+/docker/nginx/logs/
