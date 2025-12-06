@@ -1,0 +1,173 @@
+/* 商品詳細画面レイアウト */
+.item-detail-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 50px;
+}
+
+/* 画像エリア */
+.item-image-area {
+    display: flex;
+    justify-content: center;
+}
+
+.item-image-wrapper {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    max-height: 400px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 商品情報エリア */
+.item-detail-area {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0px;
+    padding: 0 60px;
+}
+
+.item-name {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.item-brand-name {
+    font-size: 12px;
+}
+
+.item-price {
+    font-size: 32px;
+}
+
+/* アイコンエリア */
+.icon-area {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 32px;
+    align-items: center;
+    margin: 0px 16px;
+}
+
+.icon-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon i {
+    font-size: 24px;
+}
+
+.icon__count {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.liked {
+    color: #ff4c4c;
+}
+
+/* いいねフォーム */
+.favorite-form__btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* 購入手続きボタンの余白リセット */
+.purchase-form__btn {
+    margin: 0 auto;
+}
+
+.item-description {
+    margin: 16px auto;
+    font-size: 16px;
+}
+.item-info-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 20px;
+    margin: 10px auto;
+}
+
+.item-info-label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.item-category {
+    display: inline-block;
+    background-color: #d9d9d9;
+    border-radius: 12px;
+    padding: 4px 12px;
+    margin: 2px 8px 2px 0;
+    font-size: 14px;
+}
+
+.comment-area {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.comment-title {
+    color: #5f5f5f;
+}
+
+.comment__user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.image-profile-wrapper {
+    width: 40px;
+    height: 40px;
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.image-profile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comment__user-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.comment__body {
+    padding: 12px;
+    font-size: 10px;
+    background: #e5e5e5;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.comment-textarea {
+    width: 100%;
+    height: 160px;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}

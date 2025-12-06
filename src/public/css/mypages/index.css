@@ -1,0 +1,29 @@
+/* ユーザー情報エリア */
+.user-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 40px auto;
+    padding: 0px;
+    min-width: 360px;
+}
+
+.user-info__name {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 50px;
+}
+
+.user-info__profile-edit {
+    display: block;
+    margin: 0 0 0 150px;
+    font-size: 16px;
+    border: 2px solid #ff5555;
+    color: #ff5555;
+    font-weight: bold;
+    padding: 5px 20px;
+    border-radius: 8px;
+}
+
+/* 商品リストエリアはitems/index.cssを参照 */

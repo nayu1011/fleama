@@ -1,0 +1,23 @@
+/* ヘッダー検索窓　非表示 */
+.header__search-form {
+    display: none;
+}
+
+/* ヘッダーリンク　非表示 */
+.header__link-inner {
+    display: none;
+}
+
+/* ログイン画面レイアウト */
+.login-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ログイン画面フォーム */
+.login-page__form {
+    width: 100%;
+    max-width: 500px;
+}

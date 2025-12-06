@@ -1,0 +1,23 @@
+/* ヘッダー検索窓　非表示 */
+.header__search-form {
+    display: none;
+}
+
+/* ヘッダーリンク　非表示 */
+.header__link-inner {
+    display: none;
+}
+
+/* 登録画面レイアウト */
+.register-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 登録画面フォーム */
+.register-page__form {
+    width: 100%;
+    max-width: 500px;
+}
