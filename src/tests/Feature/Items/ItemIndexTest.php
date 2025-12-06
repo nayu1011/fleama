@@ -3,12 +3,10 @@
 namespace Tests\Feature\Items;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Item;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Sequence;
-use App\Models\Purchase;
 
 class ItemIndexTest extends TestCase
 {

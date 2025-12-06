@@ -113,12 +113,12 @@
                         @error('comment')
                             <p class="comment-error form__error">{{ $message }}</p>
                         @enderror
-                        {{-- @if (Auth::check()) --}}
+                        @if (Auth::check())
                             {{-- ログインユーザーのみ投稿可 --}}
                             <input class="form__btn" type="submit" value="コメントを送信する">
-                        {{-- @else
+                        @else
                             <button class="form__btn form__btn--disabled" type="button">コメントを送信する</button>
-                        @endif --}}
+                        @endif
                     </form>
                 </div>
             </div>

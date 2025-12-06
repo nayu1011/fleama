@@ -8,7 +8,7 @@ use App\Models\Item;
 
 class ItemController extends Controller
 {
-    //
+    // 商品一覧表示
     public function index(Request $request)
     {
         $tab = $request->query('tab', 'recommend');
@@ -18,7 +18,7 @@ class ItemController extends Controller
 
         $query = Item::query();
 
-        // ▼ 自分が出品した商品を除外（ログイン時のみ）
+        // 自分が出品した商品を除外（ログイン時のみ）
         if (Auth::check()) {
             $query->where('seller_id', '!=', Auth::id());
         }        
@@ -43,6 +43,7 @@ class ItemController extends Controller
         return view('items.index', compact('items', 'tab', 'keyword'));
     }
 
+    // 商品詳細表示
     public function show($item_id)
     {
         $item = Item::with([

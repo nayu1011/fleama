@@ -3,11 +3,9 @@
 namespace Tests\Feature\Auth;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use App\Models\User;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Notification;
 
@@ -26,9 +24,8 @@ class EmailVerificationTest extends TestCase
             'email' => 'ndkysk@gmail.com',
         ]);
 
-        // 会員登録時にメール送信が走る想定なら
-        // → Fortify の register ルートに POST する
-        // もしくは明示的に通知発行
+        // 会員登録時にメール送信が走る想定
+        // 明示的に通知発行
         $user->sendEmailVerificationNotification();
 
         Notification::assertSentTo(
@@ -47,7 +44,7 @@ class EmailVerificationTest extends TestCase
         $response = $this->get('/email/verify');
 
         $response->assertStatus(200);
-        $response->assertSee('認証はこちらから'); // ボタン文言があれば OK
+        $response->assertSee('認証はこちらから'); // ボタン文言で評価
     }
 
     /** @test */

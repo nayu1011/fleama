@@ -11,7 +11,7 @@ use App\Models\Purchase;
 
 class MypageController extends Controller
 {
-    // プロフィール画面
+    // プロフィール・マイページ表示
     public function index(Request $request)
     {
         // 認証チェック

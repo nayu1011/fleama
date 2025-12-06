@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
 {
-    //
+    // いいね登録・解除
     public function store($item_id)
     {
         $user = Auth::user();

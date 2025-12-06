@@ -13,6 +13,7 @@ use Stripe\Checkout\Session;
 
 class PurchaseController extends Controller
 {
+    // 購入確認画面表示
     public function create(Request $request, $item_id)
     {
         // 認証チェック
@@ -23,7 +24,7 @@ class PurchaseController extends Controller
         $item = Item::findOrFail($item_id);
         $user = Auth::user();
 
-        /* 住所は、初回はDB、2回目以降はsession */
+        /* 住所は、初回はDB、2回目以降はsessionの値を使う */
         $sessionAddress = session('address');
         if (!$sessionAddress) {
             $dbAddress = $user->addresses()->first();
@@ -45,6 +46,7 @@ class PurchaseController extends Controller
         return view('purchases.create', compact('item', 'selectedPayment', 'sessionAddress'));    }
 
 
+    // 住所編集画面表示
     public function editAddress($item_id)
     {
         // 認証チェック
@@ -57,7 +59,7 @@ class PurchaseController extends Controller
         return view('purchases.editAddress', compact('item', 'address'));
     }
 
-
+    // 住所更新処理
     public function updateAddress(AddressRequest $request, $item_id)
     {
         // 認証チェック
@@ -76,6 +78,7 @@ class PurchaseController extends Controller
         return redirect()->route('purchases.create', $item_id);
     }
 
+    // 購入処理
     public function store(PurchaseRequest $request, $item_id)
     {
         // 認証チェック

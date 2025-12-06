@@ -7,7 +7,7 @@ use Tests\TestCase;
 
 class RegisterTest extends TestCase
 {
-    use RefreshDatabase; // ← テストごとにDBをリセット
+    use RefreshDatabase;
 
     /** @test */
     public function ユーザー登録画面が表示される()
@@ -100,8 +100,4 @@ class RegisterTest extends TestCase
             'email' => 'nayu@example.com',
         ]);
     }
-
-    /* 【Todo】新規登録時のメール認証画面遷移とかは後でやる */
-
-
 }

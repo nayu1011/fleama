@@ -8,6 +8,7 @@ use App\Models\Item;
 
 class SellController extends Controller
 {
+    // 出品画面表示
     public function create()
     {
         $categories = Category::all();
@@ -15,6 +16,7 @@ class SellController extends Controller
         return view('sells.create', compact('categories', 'conditions'));
     }
 
+    // 出品処理
     public function store(ExhibitionRequest $request)
     {
         // 画像アップロード

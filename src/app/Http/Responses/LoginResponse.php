@@ -7,6 +7,7 @@ use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
 
 class LoginResponse implements LoginResponseContract
 {
+    // ログイン後のレスポンス
     public function toResponse($request)
     {
         $user = $request->user();

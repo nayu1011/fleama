@@ -3,7 +3,6 @@
 namespace Tests\Feature\Purchases;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Item;
@@ -75,7 +74,7 @@ class PurchaseTest extends TestCase
         $response = $this->get(route('items.index'));
 
         $response -> assertStatus(200)
-                  -> assertSee('sold-badge');
+            -> assertSee('sold-badge');
     }
 
     /** @test */

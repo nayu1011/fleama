@@ -15,9 +15,9 @@ services:
             - ./src:/var/www/
         user: "${UID}:${GID}" # ホストのユーザーIDとグループIDをコンテナ内で使用
         environment:
-          HOME: /var/www
-          XDG_CONFIG_HOME: /var/www/.config
-          PSYSH_HOME: /var/www/storage/psysh
+            HOME: /var/www
+            XDG_CONFIG_HOME: /var/www/.config
+            PSYSH_HOME: /var/www/storage/psysh
 
     mysql:
         image: mysql:8.0.26

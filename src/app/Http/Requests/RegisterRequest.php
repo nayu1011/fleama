@@ -15,7 +15,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name'                  => ['required', 'string', 'max:20'],
-            'email'                 => ['required', 'email', 'unique:users,email'], // usersテーブルのemailカラムと重複不可
+            'email'                 => ['required', 'email', 'unique:users,email'], // usersテーブルのemailカラム重複不可
             'password'              => ['required', 'string', 'min:8'],
             'password_confirmation' => ['required', 'string', 'min:8', 'same:password'],
         ];

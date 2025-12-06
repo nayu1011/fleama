@@ -40,6 +40,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Favorite::class);
     }
 
+    // お気に入り商品一覧
     public function favoriteItems()
     {
         return $this->belongsToMany(Item::class, 'favorites', 'user_id', 'item_id');

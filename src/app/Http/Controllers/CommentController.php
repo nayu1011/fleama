@@ -8,6 +8,7 @@ use App\Http\Requests\CommentRequest;
 
 class CommentController extends Controller
 {
+    // コメント登録
     public function store(CommentRequest $request, $item_id)
     {
         if(Auth::check())

@@ -78,17 +78,17 @@ coachtechフリマ（fleama）
 [「テーブル仕様書（生徒様入力用）」](https://docs.google.com/spreadsheets/d/1laRrww31hKXqXE2GTgUUb7zHDo1EgEtJsC-zCZ_aFjY/edit?gid=1188247583#gid=1188247583)のテーブル仕様をご参照ください。
 
 ## 環境構築
-### 1. Docker ビルド
+### 1. リポジトリを取得しDockerを起動
 ```bash
 git clone https://github.com/nayu1011/fleama.git
 cd fleama
 docker compose up -d --build
 ```
 
-＊MySQLが起動しない場合は、OSごとにdocker-compose.ymlの設定を調整してください。
+＊MySQLが起動しない場合は、OSによりdocker-compose.ymlの設定を調整してください。
 
 ### 2.Laravelセットアップ
-.env.exampleファイルから.envを作成し、以下の環境変数を変更してください。
+/srcディレクトリ内で.env.exampleファイルから.envを作成し、以下の環境変数を変更してください。
 ```
 DB_HOST=mysql
 DB_DATABASE=laravel_db
@@ -96,17 +96,16 @@ DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 ```
 
-Stripe（Checkout、テストモード使用）：
+#### Stripe（Checkout、テストモード）設定：
 ```
 STRIPE_KEY=pk_test_xxxxxxxxxxx
 STRIPE_SECRET=sk_test_xxxxxxxxxxx
 ```
 
-Stripe アカウント（無料）：
-https://dashboard.stripe.com/register
+Stripe アカウント（無料）：https://dashboard.stripe.com/register  
+「開発者 → APIキー」より取得できます。
 
-
-セットアップ：
+### 3.コンテナ内でセットアップ実行
 ```
 docker compose exec php bash
 composer install
@@ -130,6 +129,23 @@ Laravel の PaymentIntent API は使用していません。
 
 そのため Webhook 設定は不要で、決済後は  
 `/purchase/success` または `/purchase/cancel` にリダイレクトされます。
+
+#### テスト決済可能カード
+```
+カード番号：4242 4242 4242 4242
+有効期限：任意（例：12/34）
+CVC：任意の3桁（例：123）
+```
+#### エラーケースをテストするためのカード
+```
+【決済失敗テスト用（カードが拒否される）】
+カード番号：4000 0000 0000 0002
+
+【3Dセキュア認証テスト用（3Dセキュア認証へ遷移）】
+カード番号：4000 0027 6000 3184
+```
+参考：Stripe公式テストカード一覧
+https://stripe.com/docs/testing
 
 #### テスト環境での Stripe 挙動
 PHPUnit 実行時は Stripe API を呼び出さず、  
