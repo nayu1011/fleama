@@ -13,15 +13,22 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-/.idea
-/.vscode
-/.cache
-/.local
+
+.idea/
+.cache/
+/.local/
 /.config/
-/.bash_history
+.bash_history
 
 /storage/framework/cache/**
 /storage/framework/sessions/**
 /storage/framework/views/**
-
 /storage/logs/**
+
+# storage/app/publicの.gitignoreに下記記載あり。
+# 商品、プロフィール画像（初期値）の管理のため、imagesフォルダとその中身は除外しない。 
+#*
+#!.gitignore
+#!images/
+#!images/**
+
