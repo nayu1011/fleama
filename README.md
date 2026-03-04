@@ -41,20 +41,22 @@ coachtechフリマ（fleama）
 - 評価機能　★追加
 
 ## 環境構築
-### 1. リポジトリを取得しDockerを起動
+### 1. Dockerを起動し、リポジトリを取得
 ```bash
 git clone https://github.com/nayu1011/fleama.git
 ```
 ```bash
 cd fleama
 ```
+
+### 2.コンテナをビルド・起動
 ```bash
 docker compose up -d --build
 ```
 
 ※ MySQLが起動しない場合は、OSにより `docker-compose.yml` の設定を調整してください。
 
-### 2. Laravelセットアップ
+### 3. Laravelセットアップ
 #### .envの作成（.env.exampleをコピー）
 ```bash
 cp src/.env.example src/.env
@@ -77,7 +79,7 @@ STRIPE_SECRET=sk_test_xxxxxxxxxxx
 Stripe アカウント（無料）：https://dashboard.stripe.com/register  
 アカウントを作成し「開発者 → APIキー」より取得したキーを設定してください。
 
-### 3. コンテナ内でセットアップ実行
+### 4. コンテナ内でセットアップ実行
 ```bash
 docker compose exec php bash
 ```
