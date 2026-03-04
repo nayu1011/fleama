@@ -74,6 +74,7 @@ class PurchaseAddressTest extends TestCase
 
         $response = $this->post("/purchase/{$item->id}",['payment_method' => session('payment_method')]);
         $response->assertRedirect(route('purchases.success'));
+        $this->get(route('purchases.success'));
 
         $this->assertDatabaseHas('purchases', [
                 'item_id' => $item->id,

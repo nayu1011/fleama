@@ -9,7 +9,9 @@ class ItemsTableSeeder extends Seeder
 {
     public function run()
     {
+        $now = now();
         DB::table('items')->insert([
+            // 出品者１（seller_id=1）の出品
             [
                 'seller_id' => 1,
                 'name' => '腕時計',
@@ -18,10 +20,10 @@ class ItemsTableSeeder extends Seeder
                 'price' => 15000,
                 'condition' => 0,
                 'image_path' => 'images/items/ArmaniMensClock.jpg',
-                'like_count' => 1,
+                'like_count' => 2,
                 'status' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'seller_id' => 1,
@@ -33,34 +35,34 @@ class ItemsTableSeeder extends Seeder
                 'image_path' => 'images/items/HDDHardDisk.jpg',
                 'like_count' => 0,
                 'status' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'seller_id' => 1,
                 'name' => '玉ねぎ3束',
-                'brand_name' => '',
+                'brand_name' => null,
                 'description' => '新鮮な玉ねぎ3束のセット',
                 'price' => 300,
                 'condition' => 2,
                 'image_path' => 'images/items/iLoveIMGd.jpg',
                 'like_count' => 1,
                 'status' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'seller_id' => 1,
                 'name' => '革靴',
                 'brand_name' => null,
                 'description' => 'クラシックなデザインの革靴',
-                'price' => 4000,    
+                'price' => 4000,
                 'condition' => 3,
                 'image_path' => 'images/items/LeatherShoesProductPhoto.jpg',
                 'like_count' => 0,
                 'status' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'seller_id' => 1,
@@ -70,15 +72,17 @@ class ItemsTableSeeder extends Seeder
                 'price' => 45000,
                 'condition' => 0,
                 'image_path' => 'images/items/LivingRoomLaptop.jpg',
-                'like_count' => 1,
+                'like_count' => 2,
                 'status' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
+
+            // 出品者２（seller_id=2）の出品
             [
-                'seller_id' => 1,
+                'seller_id' => 2,
                 'name' => 'マイク',
-                'brand_name' => '',
+                'brand_name' => null,
                 'description' => <<<TEXT
                     高音質のレコーディング用マイク！
                     ボーカルや楽器の録音に最適です。
@@ -90,10 +94,10 @@ class ItemsTableSeeder extends Seeder
                 'price' => 8000,
                 'condition' => 1,
                 'image_path' => 'images/items/MusicMic4632231.jpg',
-                'like_count' => 0,
+                'like_count' => 1,
                 'status' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'seller_id' => 2,
@@ -105,24 +109,24 @@ class ItemsTableSeeder extends Seeder
                 'image_path' => 'images/items/Pursefashionpocket.jpg',
                 'like_count' => 0,
                 'status' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
-                'seller_id' => 1,
+                'seller_id' => 2,
                 'name' => 'タンブラー',
-                'brand_name' => '',
+                'brand_name' => null,
                 'description' => '使いやすいタンブラー',
                 'price' => 500,
                 'condition' => 3,
                 'image_path' => 'images/items/Tumblersouvenir.jpg',
                 'like_count' => 0,
                 'status' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
-                'seller_id' => 1,
+                'seller_id' => 2,
                 'name' => 'コーヒーミル',
                 'brand_name' => 'Starbacks',
                 'description' => '手動のコーヒーミル',
@@ -131,8 +135,8 @@ class ItemsTableSeeder extends Seeder
                 'image_path' => 'images/items/WaitresswithCoffeeGrinder.jpg',
                 'like_count' => 0,
                 'status' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'seller_id' => 2,
@@ -142,10 +146,10 @@ class ItemsTableSeeder extends Seeder
                 'price' => 2500,
                 'condition' => 1,
                 'image_path' => 'images/items/外出メイクアップセット.jpg',
-                'like_count' => 0,
+                'like_count' => 1,
                 'status' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'created_at' => $now,
+                'updated_at' => $now,
             ]
         ]);
     }

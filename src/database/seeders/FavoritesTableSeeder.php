@@ -33,7 +33,7 @@ class FavoritesTableSeeder extends Seeder
             [
                 'user_id' => 1,
                 'item_id' => 6,
-            ],  
+            ],
             [
                 'user_id' => 1,
                 'item_id' => 1,

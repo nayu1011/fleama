@@ -32,7 +32,7 @@
                         <a href="{{ route('items.show', ['item_id' => $item->id]) }}" class="item__link">
                             <div class="item__image-wrapper">
                                 <img class="item__image" src="{{ Storage::url($item->image_path) }}" alt="商品画像">
-                                @if ($item->status === Item::STATUS_SOLD)
+                                @if (in_array($item->status, [Item::STATUS_TRADING,Item::STATUS_SOLD], true))
                                     <img src="{{ asset('images/sold.png') }}" class="sold-badge">
                                 @endif
                             </div>

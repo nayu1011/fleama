@@ -15,7 +15,7 @@
             <div class="item-image-area">
                 <div class="item-image-wrapper">
                     <img class="item-image" src="{{ Storage::url($item->image_path) }}" alt="商品画像">
-                    @if ($item->status === Item::STATUS_SOLD)
+                    @if (in_array($item->status, [Item::STATUS_TRADING, Item::STATUS_SOLD], true))
                         <img src="{{ asset('images/sold.png') }}" class="sold-badge">
                     @endif
                 </div>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 {{-- 購入ボタン --}}
-                @if (Auth::check() && $item->status !== Item::STATUS_SOLD)
+                @if (Auth::check() && $item->status === Item::STATUS_LISTING)
                     <form class="purchase-form" action="{{ route('purchases.create', $item->id) }}" method="GET">
                         @csrf
                         <input class="form__btn purchase-form__btn" type="submit" value="購入手続きへ">

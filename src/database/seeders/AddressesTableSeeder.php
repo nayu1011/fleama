@@ -22,6 +22,12 @@ class AddressesTableSeeder extends Seeder
                 'address' => '東京都渋谷区神山町2-3-4',
                 'building' => '渋谷ビル202',
             ],
+            [
+                'user_id' => 3,
+                'postal_code' => '345-6789',
+                'address' => '東京都世田谷区太子堂3-4-5',
+                'building' => '世田谷ビル303',
+            ],
         ]);
     }
 }

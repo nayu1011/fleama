@@ -9,28 +9,24 @@ use App\Http\Controllers\SellController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\TradeController;
 
 /*
 |--------------------------------------------------------------------------
 | 公開ルート（認証不要）
 |--------------------------------------------------------------------------
 */
-//PG03	会員登録画面はFortifyを使用
-//PG04	ログイン画面はFortifyを使用
+//PG03 会員登録画面はFortifyを使用
+//PG04 ログイン画面はFortifyを使用
 
 Route::get('/',[ItemController::class,'index'])->name('items.index');   //PG01 商品一覧画面（トップ画面）、PG02 商品一覧画面
 Route::get('/item/{item_id}',[ItemController::class,'show'])->name('items.show');   //PG05 商品詳細画面
 
 // stripe 決済結果画面(決済完了)
-Route::get('/purchase/success', function () {
-    return view('purchases.success');
-})->name('purchases.success');
+Route::get('/purchase/success', [PurchaseController::class, 'success'])->name('purchases.success');
 
 // stripe 決済結果画面(キャンセル)
-Route::get('/purchase/cancel', function () {
-    return view('purchases.cancel');
-})->name('purchases.cancel');
-
+Route::get('/purchase/cancel', [PurchaseController::class, 'cancel'])->name('purchases.cancel');
 
 /*
 |--------------------------------------------------------------------------
@@ -77,14 +73,22 @@ Route::middleware(['auth','verified'])->group(function () {
     // コメント投稿機能
     Route::post('/item/{item_id}/comments', [CommentController::class,'store'])->name('comments.store'); //PG05 商品詳細画面
 
-    // 出品関連    
+    // 出品関連
     Route::get('/sell',[SellController::class,'create'])->name('sells.create');  //PG08 商品出品画面
     Route::post('/sell',[SellController::class,'store'])->name('sells.store');   //PG08 商品出品画面
-    
+
     // 購入関連
     Route::get('/purchase/address/{item_id}',[PurchaseController::class,'editAddress'])->name('purchases.editAddress'); //PG07 送付先住所変更画面
     Route::post('/purchase/address/{item_id}',[PurchaseController::class,'updateAddress'])->name('purchases.updateAddress'); //PG07 送付先住所変更画面
 
     Route::get('/purchase/{item_id}',[PurchaseController::class,'create'])->name('purchases.create');   //PG06 購入確認画面
     Route::post('/purchase/{item_id}',[PurchaseController::class,'store'])->name('purchases.store');    //PG06 商品購入画面
+
+    // 取引関連
+    Route::get('/trade/{trade}', [TradeController::class, 'show'])->name('trades.show');
+    Route::post('/trade/{trade}/message', [TradeController::class, 'store'])->name('trades.storeMessage');
+    Route::patch('/trade/messages/{message}', [TradeController::class, 'update'])->name('trades.updateMessage');
+    Route::delete('/trade/messages/{message}', [TradeController::class, 'destroy'])->name('trades.destroyMessage');
+
+    Route::post('/trade/{trade}/review', [TradeController::class, 'review'])->name('trades.review');
 });

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Item extends Model
 {
@@ -16,7 +17,7 @@ class Item extends Model
     const STATUS_SOLD          = 3;   // 売却済み
     const STATUS_WITHDRAWN     = 8;   // 退会未売却
     const STATUS_PRIVATE       = 9;   // 運営非公開
-    
+
     // 商品状態定数
     const CONDITIONS = [
         0 => '新品',
@@ -66,12 +67,18 @@ class Item extends Model
         if (!$user) {
             return false;
         }
-        
+
         return $this->favorites()->where('user_id', $user->id)->exists();
     }
 
     public function purchase()
     {
         return $this->hasOne(Purchase::class);
+    }
+
+    // 取引
+    public function trade(): HasOne
+    {
+        return $this->hasOne(Trade::class);
     }
 }

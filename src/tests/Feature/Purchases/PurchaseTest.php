@@ -35,6 +35,7 @@ class PurchaseTest extends TestCase
 
         $response = $this->post("/purchase/{$item->id}",['payment_method' => session('payment_method')]);
         $response->assertRedirect(route('purchases.success'));
+        $this->get(route('purchases.success'));
 
         $this->assertDatabaseHas('purchases', [
             'buyer_id' => $buyer->id,
@@ -45,7 +46,7 @@ class PurchaseTest extends TestCase
 
         $this->assertDatabaseHas('items', [
             'id' => $item->id,
-            'status' => Item::STATUS_SOLD,
+            'status' => Item::STATUS_TRADING,
         ]);
     }
 
@@ -71,6 +72,7 @@ class PurchaseTest extends TestCase
         ]);
 
         $response = $this->post("/purchase/{$item->id}",['payment_method' => session('payment_method')]);
+        $this->get(route('purchases.success'));
         $response = $this->get(route('items.index'));
 
         $response -> assertStatus(200)
