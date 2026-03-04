@@ -55,7 +55,11 @@ docker compose up -d --build
 ※ MySQLが起動しない場合は、OSにより `docker-compose.yml` の設定を調整してください。
 
 ### 2. Laravelセットアップ
-`/src` ディレクトリ内で `.env.example` ファイルから `.env` を作成し、以下の環境変数を変更してください。
+#### .envの作成（.env.exampleをコピー）
+```bash
+cp src/.env.example src/.env
+```
+#### 作成した`src/.env`で以下の通りに環境変数を変更してください。
 
 ```env
 DB_HOST=mysql
