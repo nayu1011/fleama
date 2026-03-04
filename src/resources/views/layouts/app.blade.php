@@ -19,7 +19,8 @@
 
             <div class="header__logo-wrapper">
                 <a href="{{ route('items.index') }}">
-                    <img class="header__logo" src="{{ asset('images/COACHTECH_logo.png') }}" alt="COACHTECH">
+                    <img class="header__logo header__logo--desktop" src="{{ asset('images/COACHTECH_logo.png') }}" alt="COACHTECH">
+                    <img class="header__logo header__logo--tablet" src="{{ asset('images/CT_logo.png') }}" alt="COACHTECH">
                 </a>
             </div>
 
@@ -33,7 +34,7 @@
                     <form class="header__link-logout header__link" action="{{ route('logout') }}" method="POST">
                         @csrf
                             <input class="header__link-logout" type="submit" value="ログアウト">
-                    </form>                    
+                    </form>
                 @else
                     <a class="header__link-login" href="{{route('login')}}">ログイン</a>
                 @endif

@@ -543,3 +543,124 @@
         padding: 10px 20px;
     }
 }
+
+@media (min-width: 768px) and (max-width: 850px) {
+    .trade-page {
+        grid-template-columns: 220px 1fr;
+    }
+
+    .trade-main {
+        display: grid;
+        grid-template-rows: auto auto minmax(0, 1fr) auto;
+        min-height: 100%;
+        overflow: hidden;
+    }
+
+    .trade-sidebar {
+        position: static;
+        height: auto;
+    }
+
+    .trade-sidebar-title {
+        font-size: 22px;
+        padding: 6px 4px 8px;
+    }
+
+    .trade-sidebar-item {
+        width: 180px;
+        height: 34px;
+        padding: 6px 8px;
+        font-size: 14px;
+    }
+
+    .trade-header {
+        padding: 10px 12px;
+    }
+
+    .trade-header-title {
+        font-size: 24px;
+    }
+
+    .avatar {
+        width: 56px;
+        height: 56px;
+    }
+
+    .btn-complete {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .trade-item {
+        padding: 10px 12px;
+    }
+
+    .trade-item-image {
+        width: 140px;
+        height: 140px;
+    }
+
+    .trade-item-name {
+        font-size: 34px;
+    }
+
+    .trade-item-price {
+        font-size: 24px;
+    }
+
+    .trade-messages {
+        min-height: 0;
+        max-height: none;
+        padding: 10px 12px 48px;
+        overflow-y: auto;
+    }
+
+    .trade-messages-unread {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+
+    .message {
+        min-width: 140px;
+    }
+
+    .avatar-chat {
+        width: 44px;
+        height: 44px;
+    }
+
+    .message-sender {
+        font-size: 12px;
+        gap: 6px;
+    }
+
+    .message-bubble {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .message-actions {
+        gap: 14px;
+        padding: 8px;
+    }
+
+    .message-action-link,
+    .message-actions button {
+        font-size: 10px;
+    }
+
+    .trade-form-area {
+        position: static;
+        background: #fff;
+        padding: 0 8px;
+    }
+
+    .trade-form-input,
+    .trade-form-image-btn {
+        font-size: 12px;
+    }
+
+    .trade-form-send {
+        height: 44px;
+    }
+}

@@ -103,7 +103,7 @@ php artisan migrate:fresh --seed
 - 既読管理: 6件（trade × buyer/seller）
 - お気に入り: 7件
 - コメント: 6件
-- 取引レビュー: completed取引がある場合のみ投入（現シードでは0件）
+- 取引レビュー: 0件（動作確認は購入→取引完了→評価送信で確認可能）
 
 ## テスト実行
 ```bash

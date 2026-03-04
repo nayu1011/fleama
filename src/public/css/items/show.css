@@ -173,3 +173,30 @@
     border-radius: 4px;
     resize: vertical;
 }
+
+@media (min-width: 768px) and (max-width: 850px) {
+    .item-detail-page {
+        grid-template-columns: 1fr;
+        row-gap: 24px;
+        padding: 24px 20px;
+    }
+
+    .item-image-wrapper {
+        margin-top: 0;
+        max-width: 360px;
+        max-height: 360px;
+    }
+
+    .item-detail-area {
+        padding: 0;
+        gap: 12px;
+    }
+
+    .form__btn {
+        display: block;
+        margin: 0 auto;
+        width: 50%;
+    }
+
+
+}
