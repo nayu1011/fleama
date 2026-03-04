@@ -1,6 +1,22 @@
 # アプリケーション名
 coachtechフリマ（fleama）
 
+## 目次
+- [概要](#概要)
+- [使用技術(実行環境)](#使用技術実行環境)
+- [機能一覧](#機能一覧)
+- [環境構築](#環境構築)
+- [ダミーデータ](#ダミーデータ)
+- [テスト実行](#テスト実行)
+- [URL](#url)
+- [メール認証](#メール認証mailhog)
+- [Stripe](#stripe)
+- [API・ルーティング一覧](#apiルーティング一覧)
+- [画面遷移図](#画面遷移図)
+- [ER図](#er図)
+- [テーブル仕様書](#テーブル仕様書)
+
+
 ## 概要
 本アプリケーションは、商品の出品と購入ができるフリマアプリです。  
 追加機能として、購入後の取引メッセージ送受信、未読メッセージ表示、評価機能を実装しています。
@@ -68,7 +84,7 @@ composer install
 php artisan key:generate
 ```
 ```bash
-php artisan migrate --seed
+php artisan migrate:fresh --seed
 ```
 ```bash
 php artisan storage:link
@@ -81,11 +97,6 @@ exit
 ```
 
 ## ダミーデータ
-### 作成コマンド
-```bash
-php artisan migrate:fresh --seed
-```
-
 ### ユーザーデータ（UsersTableSeeder）
 | ID | 名前 | メールアドレス | パスワード | 画像 | 関連データ |
 |---|---|---|---|---|---|
